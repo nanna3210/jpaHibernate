@@ -1,7 +1,5 @@
 package com.nanna.repository;
 
-import static org.junit.Assert.fail;
-
 import javax.persistence.EntityManager;
 import javax.transaction.Transactional;
 
@@ -16,7 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.nanna.JpaHibernateApplication;
 import com.nanna.entity.Passport;
 import com.nanna.entity.Student;
-
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JpaHibernateApplication.class)
@@ -47,7 +44,7 @@ public class StudentRepositoryTest {
 		logger.info("student -> {}", student);
 		logger.info("passport -> {}", student.getPassport());
 	}
-	
+
 	@Test
 	@Transactional
 	public void retrievePassportAndAssociatedStudent() {
@@ -55,12 +52,11 @@ public class StudentRepositoryTest {
 		logger.info("passport -> {}", passport);
 		logger.info("student -> {}", passport.getStudent());
 	}
-	
-	
+
 	@Test
 	@Transactional
 	public void retrieveStudent() {
-		Student student= em.find(Student.class, 20001L);
+		Student student = em.find(Student.class, 20001L);
 		logger.info("passport -> {}", student);
 		logger.info("student -> {}", student.getCourses());
 	}
