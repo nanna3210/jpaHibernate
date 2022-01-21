@@ -1,7 +1,5 @@
 package com.nanna.repository;
 
-import static org.junit.Assert.*;
-
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -19,37 +17,38 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.nanna.JpaHibernateApplication;
 import com.nanna.entity.Course;
 
-
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = JpaHibernateApplication.class)
 public class JpqlTest {
 
 	@Autowired
 	EntityManager em;
-	
+
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@Test
 	public void jpql_basic() {
-		
-			Query createDQuery = em.createQuery("select c from Course c");
-		
-			List resultList = createDQuery.getResultList();
-			logger.info("Select C from Course C =====> {}", resultList);
+
+		Query createDQuery = em.createQuery("select c from Course c");
+
+		List resultList = createDQuery.getResultList();
+		logger.info("Select C from Course C =====> {}", resultList);
 	}
-	
-		@Test
-		public void jpql_typed () { 
-			
-			TypedQuery<Course> createQuery = em.createQuery("select c from Course c ", Course.class);
-			List<Course> resultList = createQuery.getResultList();
-			logger.info("select c from Course {} ", resultList);
-		}
-		@Test
-		public void jpql_where () { 
-			
-			TypedQuery<Course> createQuery = em.createQuery("select c from Course c where name like 'spring'", Course.class);
-			List<Course> resultList = createQuery.getResultList();
-			logger.info("select c from Course {} ", resultList);
-		}
+
+	@Test
+	public void jpql_typed() {
+
+		TypedQuery<Course> createQuery = em.createQuery("select c from Course c ", Course.class);
+		List<Course> resultList = createQuery.getResultList();
+		logger.info("select c from Course {} ", resultList);
+	}
+
+	@Test
+	public void jpql_where() {
+
+		TypedQuery<Course> createQuery = em.createQuery("select c from Course c where name like 'spring'",
+				Course.class);
+		List<Course> resultList = createQuery.getResultList();
+		logger.info("select c from Course {} ", resultList);
+	}
 }
