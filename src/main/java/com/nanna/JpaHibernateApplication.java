@@ -66,6 +66,8 @@ public class JpaHibernateApplication implements CommandLineRunner {
 		employeeRepository.saveEmployee(new FullTimeEmployee("nanna Fulltime", new BigDecimal("10000")));
 		System.out.println("nanna__________");
 		System.out.println("nanna Das  !!!!!!!!");
+		System.out.println("nanna Das  !!!!!!!!");
+		System.out.println("nanna Das  !!!!!!!!");
 		employeeRepository.saveEmployee(new PartTimeEmployee("nanna Parttime", new BigDecimal("70")));
 
 	}
